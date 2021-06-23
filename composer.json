@@ -1,0 +1,13 @@
+{
+	"authors": [{
+		"name": "artemmm312",
+		"email": "artemmm312@gmail.com"
+	}],
+	"require": {},
+	"autoload": {
+		"psr-4": {
+			"db\\": "db",
+			"service\\": "service"
+		}
+	}
+}
