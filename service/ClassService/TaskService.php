@@ -15,29 +15,38 @@ class TaskService implements iTaskService
 		$this->taskDAO = new TaskDAO();
 	}
 
-	function getAll()
+	function getTasks()
 	{
 		return $this->taskDAO->getAll();
-
 	}
 
-	function getById(int $id)
+	function getTaskById(int $id)
 	{
 		return $this->taskDAO->getById($id);
 	}
 
-	function add(Task $task)
+	function addTask(Task $task)
 	{
 		return $this->taskDAO->insert($task);
 	}
 
-	function setIsCompleted(int $id, bool $isCompleted)
+	function updateTask(Task $task)
+	{
+		return $this->taskDAO->update($task);
+	}
+
+	function setTaskIsCompleted(int $id, bool $isCompleted)
 	{
 		return $this->taskDAO->setIsCompletedById($id, $isCompleted);
 	}
 
-	function deleteById(int $id)
+	function deleteTaskById(int $id)
 	{
 		return $this->taskDAO->deleteById($id);
+	}
+
+	function getTaskByUserID(int $userId)
+	{
+		return $this->taskDAO->getByUserId($userId);
 	}
 }

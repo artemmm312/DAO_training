@@ -3,26 +3,54 @@
 namespace db\Controllers;
 
 use service\ClassService\TaskService;
+use db\entity\Task;
 
 class TaskController
 {
 	public $taskService;
 	public $id;
+	public $isCompleted;
+	public $userId;
+	public $task;
 
-	public function __construct($id = null)
+	public function __construct()
 	{
 		$this->taskService = new TaskService();
-		$this->id = $id;
-		
+		$this->task = new Task();
 	}
 
-	function getTask()
+	function showTask()
 	{
-		return $this->taskService->getById($this->id);
+		return $this->taskService->getTaskById($this->id);
 	}
 
-	function getTasks()
+	function showTasks()
 	{
-		return $this->taskService->getAll();
+		return $this->taskService->getTasks();
+	}
+
+	function appendTask()
+	{
+		return $this->taskService->addTask($this->task);
+	}
+
+	function renewTask()
+	{
+		return $this->taskService->updateTask($this->task);
+	}
+
+	function setTaskCompletion()
+	{
+		return $this->taskService->setTaskIsCompleted($this->id, $this->isCompleted);
+	}
+
+	function deleteTask()
+	{
+		return $this->taskService->deleteTaskById($this->id);
+	}
+
+	function showTaskByUser()
+	{
+		return $this->taskService->getTaskByUserID($this->userId);
 	}
 }

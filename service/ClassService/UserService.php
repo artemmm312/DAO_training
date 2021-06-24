@@ -15,7 +15,17 @@ class UserService implements iUserService
 		return $this->userDAO = new UserDAO();
 	}
 
-	function add(User $user)
+	function getUserById(int $id)
+	{
+		return $this->userDAO->getById($id);
+	}
+
+	function getUsers()
+	{
+		return $this->userDAO->getAll();
+	}
+
+	function addUser(User $user)
 	{
 		return $this->userDAO->insert($user);
 	}
@@ -28,5 +38,10 @@ class UserService implements iUserService
 	function deleteUserById(int $id)
 	{
 		return $this->userDAO->deleteById($id);
+	}
+
+	function getUserByUserName(string $username)
+	{
+		return $this->userDAO->getByUsername($username);
 	}
 }
