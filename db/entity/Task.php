@@ -2,7 +2,9 @@
 
 namespace db\entity;
 
-class Task extends Entity
+use JsonSerializable;
+
+class Task extends Entity implements JsonSerializable
 {
 	private $text;
 	private $isCompleted;
@@ -52,5 +54,16 @@ class Task extends Entity
 			case 'userId':
 				return $this->userId;
 		}
+	}
+
+	public function jsonSerialize()
+	{
+		return [
+			'id' => $this->id,
+			'text' => $this->text,
+			'isCompleted' => $this->isCompleted,
+			'createdAt' => $this->createdAt,
+			'userId' => $this->userId,
+		];
 	}
 }

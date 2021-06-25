@@ -21,12 +21,12 @@ class TaskController
 
 	function showTask()
 	{
-		return $this->taskService->getTaskById($this->id);
+		return json_encode([$this->taskService->getTaskById($this->id)]);
 	}
 
 	function showTasks()
 	{
-		return $this->taskService->getTasks();
+		return json_encode($this->taskService->getTasks());
 	}
 
 	function appendTask()
