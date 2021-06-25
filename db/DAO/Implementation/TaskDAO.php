@@ -49,6 +49,7 @@ class TaskDAO implements iTaskDAO
 			INSERT INTO task (`text`, isCompleted, createdAt, user_id) VALUES
 			('$task->text', '$task->isCompleted', '$task->createdAt', '$task->userId')
 		");
+		return json_encode("Задача добавлена!");
 	}
 
 	function update($task)
@@ -56,11 +57,12 @@ class TaskDAO implements iTaskDAO
 		$this->connection->pdo->query("
 			UPDATE task SET
 				`text` = '$task->text',
-				isCompleted = " . ($task->isCompleted ? 1 : 0) . ",
+				isCompleted = '$task->isCompleted',
 				createdAt = '$task->createdAt',
-				user_id = '$task->userId',
-			WHERE id = $task->id
+				user_id = '$task->userId'
+			WHERE id = '$task->id'
 		");
+		return json_encode("Задача c ID '$task->id'обнавлена");
 	}
 
 	function deleteById($id)

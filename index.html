@@ -25,20 +25,35 @@
 			<input type="submit" name="done_Tasks" value="Показать задачи" />
 		</form>
 	</div>
-	<!--<div id=' addTask'>
+	<div id='addTask'>
 		<form name="addTask" method="post">
 			<label>Добавить задачу</label><br />
-			<input type="int" size="20" name="task_id" placeholder="Введите ID задачи" maxlength="3" /><br />
-			<input type="string" size="40" name="task_text" placeholder="Введите текст задачи" maxlength="120" /><br />
-			<input type="bool" size="30" name="task_isCompleted" placeholder="Задача выполнена (true/false)"
+			<input type="hidden" value="insert" name="action"/>
+			<input type="string" size="40" name="addTask_text" placeholder="Введите текст задачи" maxlength="120" /><br />
+			<input type="bool" size="30" name="addTask_isCompleted" placeholder="Задача выполнена (true/false)"
 				maxlength="5" /><br />
-			<input type="int" size="30" name="task_createdAt" placeholder="Введите дату год-месяц-число"
+			<input type="int" size="30" name="addTask_createdAt" placeholder="Введите дату год-месяц-число"
 				maxlength="21" /><br />
-			<input type="int" size="40" name="task_userId" placeholder="Введите ID пользователя для этой задачи"
+			<input type="int" size="40" name="addTask_userId" placeholder="Введите ID пользователя для этой задачи"
 				maxlength="3" /><br />
 			<input type="submit" name="add_Task" value="Добавить задачу" />
 		</form>
-	</div>-->
+	</div>
+	<div id='updateTask'>
+		<form name="updateTask" method="post">
+			<label>Обнавить задачу</label><br />
+			<input type="hidden" value="update" name="action"/>
+			<input type="int" size="30" name="updateTask_id" placeholder="ID задачи обнавляемой задачи" maxlength="3" /><br />
+			<input type="string" size="40" name="updateTask_text" placeholder="Введите текст задачи" maxlength="120" /><br />
+			<input type="bool" size="30" name="updateTask_isCompleted" placeholder="Задача выполнена (true/false)"
+				maxlength="5" /><br />
+			<input type="int" size="30" name="updateTask_createdAt" placeholder="Введите дату год-месяц-число"
+				maxlength="21" /><br />
+			<input type="int" size="40" name="updateTask_userId" placeholder="Введите ID пользователя для этой задачи"
+				maxlength="3" /><br />
+			<input type="submit" name="update_Task" value="Обнавить задачу" />
+		</form>
+	</div>
 	<script src = "js/index.js"></script>
 </body>
 

@@ -13,8 +13,26 @@ switch ($input['action'])
 		$taskController->id = $input['task_id'];
 		echo ($taskController->showTask());
 		break;
+
 	case 'getAll':
 		echo ($taskController->showTasks());
+		break;
+
+	case 'insert':
+		$taskController->task->text = $input['addTask_text'];
+		$taskController->task->isCompleted = $input['addTask_isCompleted'];
+		$taskController->task->createdAt = $input['addTask_createdAt'];
+		$taskController->task->userId = $input['addTask_userId'];
+		echo $taskController->appendTask();
+		break;
+
+	case 'update':
+		$taskController->task->id = $input['updateTask_id'];
+		$taskController->task->text = $input['updateTask_text'];
+		$taskController->task->isCompleted = $input['updateTask_isCompleted'];
+		$taskController->task->createdAt = $input['updateTask_createdAt'];
+		$taskController->task->userId = $input['updateTask_userId'];
+		echo ($taskController->renewTask());
 		break;
 }
 /* $taskController->id = $input['task_id'];
