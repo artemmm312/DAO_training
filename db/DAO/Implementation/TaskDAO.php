@@ -69,21 +69,22 @@ class TaskDAO implements iTaskDAO
 	{
 		$this->connection
 			->pdo
-			->query("DELETE FROM task WHERE id = $id");
+			->query("DELETE FROM task WHERE id = '$id'");
+			return json_encode("Задача с ID '$id' удалена");
 	}
 
 	function setIsCompletedById($id, $isCompleted)
 	{
 		$this->connection
 			->pdo
-			->query("UPDATE task SET isCompleted = '$isCompleted' WHERE id= $id");
+			->query("UPDATE task SET isCompleted = '$isCompleted' WHERE id= '$id'");
 	}
 
 	function getByUserId($userId)
 	{
 		$result = $this->connection
 			->pdo
-			->query("SELECT * FROM task WHERE `user_id` = $userId")
+			->query("SELECT * FROM task WHERE `user_id` = '$userId'")
 			->fetchAll();
 		$tasks = [];
 		foreach ($result as $row) {

@@ -34,6 +34,11 @@ switch ($input['action'])
 		$taskController->task->userId = $input['updateTask_userId'];
 		echo ($taskController->renewTask());
 		break;
+
+	case 'delete':
+		$taskController->id = $input['deleteTask_id'];
+		echo $taskController->deleteTask();
+		break;
 }
 /* $taskController->id = $input['task_id'];
 echo $taskController->showTask(); */

@@ -157,3 +157,22 @@ document.forms.updateTask.onsubmit = function (e) {
 		})
 		.catch(err => console.log(err))
 };
+
+//Удаление задачи по ID
+document.forms.deleteTask.onsubmit = function (e) {
+	e.preventDefault();
+
+	let id = document.querySelector('input[name="deleteTask_id"]').value;
+	let body = {
+		"deleteTask_id": id,
+		"action": 'delete'
+	};
+	sendRequest('POST', requestURL, body)
+		.then(data => {
+			alert(data);
+
+			const deleteTask_id = document.querySelector('input[name="deleteTask_id"]');
+			deleteTask_id.value = '';
+		})
+		.catch(err => console.log(err))
+};
