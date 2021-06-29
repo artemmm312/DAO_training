@@ -5,7 +5,6 @@ namespace db\DAO\Implementation;
 use db\DAO\iClassDAO\iTaskDAO;
 use db\entity\Task;
 use db\Connection\Connection;
-use PDO;
 
 class TaskDAO implements iTaskDAO
 {
@@ -50,7 +49,10 @@ class TaskDAO implements iTaskDAO
 			INSERT INTO task (`text`, isCompleted, createdAt, user_id) VALUES
 			('$task->text', '$task->isCompleted', '$task->createdAt', '$task->userId')
 		");
-		return json_encode("Задача добавлена!");
+		return json_encode("
+		INSERT INTO task (`text`, isCompleted, createdAt, user_id) VALUES
+		('$task->text', '$task->isCompleted', '$task->createdAt', '$task->userId')
+	");
 	}
 
 	function update($task)
@@ -95,6 +97,7 @@ class TaskDAO implements iTaskDAO
 		$this->connection
 			->pdo
 			->query("UPDATE task SET isCompleted = '$isCompleted' WHERE id= '$id'");
+		return json_encode("UPDATE task SET isCompleted = '$isCompleted' WHERE id= '$id'");
 	}
 
 	function getByUserId($userId)

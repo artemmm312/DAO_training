@@ -68,6 +68,17 @@
 			<input type="submit" name="daelete_Task" value="Удалить задачу" />
 		</form>
 	</div>
+
+	<div id='setTaskCompletion'>
+		<form name="setTaskCompletion">
+			<label>Установить выполнение задачи по ID
+				(Введите ID задачи):</label><br />
+				<input type="hidden" value="setTaskIsCompletedById" name="action"/>
+			<input type="text" size="15" name="setTaskCompletion_id" placeholder="Введите ID задачи" maxlength="3" /><br />
+			<input type="text" size="15" name="setTaskCompletion_isCompleted" placeholder="true/false" maxlength="5" /><br />
+			<input type="submit" name="setIsCompletedById_Task" value="Установить выполнение" />
+		</form>
+	</div>
 	<script src = "js/index.js"></script>
 </body>
 

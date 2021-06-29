@@ -30,7 +30,7 @@ class Task extends Entity implements JsonSerializable
 				$this->text = (string)$value;
 				break;
 			case 'isCompleted':
-				$this->isComleted = (bool)$value;
+				$this->isComleted = (bool) $value;
 				break;
 			case 'createdAt':
 				$this->createdAt = date($value);

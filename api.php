@@ -39,6 +39,12 @@ switch ($input['action'])
 		$taskController->id = $input['deleteTask_id'];
 		echo $taskController->deleteTask();
 		break;
+
+	case 'setTaskIsCompletedById':
+		$taskController->id = $input['setTaskCompletion_id'];
+		$taskController->isCompleted = $input['setTaskCompletion_isCompleted'];
+		echo $taskController->setTaskCompletion();
+		break;
 }
 
 /* $taskController->id = $input['task_id'];

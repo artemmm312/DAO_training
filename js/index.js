@@ -178,3 +178,27 @@ document.forms.deleteTask.onsubmit = function (e) {
 		})
 		.catch(err => console.log(err))
 };
+
+//Установить выполнение задвчи по ID
+document.forms.setTaskCompletion.onsubmit = function (e) {
+	e.preventDefault();
+
+	let id = document.querySelector('input[name="setTaskCompletion_id"]').value;
+	let isCompleted = document.querySelector('input[name="setTaskCompletion_isCompleted"]').value;
+	
+	let body = {
+		"setTaskCompletion_id": id,
+		"setTaskCompletion_isCompleted": isCompleted,
+		"action": 'setTaskIsCompletedById'
+	};
+	sendRequest('POST', requestURL, body)
+		.then(data => {
+			alert(data);
+			console.log(isCompleted);
+			const setTaskCompletion_id = document.querySelector('input[name="setTaskCompletion_id"]');
+			setTaskCompletion_id.value = '';
+			const setTaskCompletion_isCompleted = document.querySelector('input[name="setTaskCompletion_isCompleted"]');
+			setTaskCompletion_isCompleted.value = '';
+		})
+		.catch(err => console.log(err))
+};
