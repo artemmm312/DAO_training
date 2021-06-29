@@ -1,6 +1,7 @@
 <?php
 
 namespace db\DAO\iClassDAO;
+use db\entity\Entity;
 
 interface iDAO
 {
@@ -8,9 +9,9 @@ interface iDAO
 
 	public function getAll();
 
-	public function insert($entity);
+	public function insert(Entity $entity);
 
-	public function update($entity);
+	public function update(Entity $entity);
 
 	public function deleteById($id);
 }

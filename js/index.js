@@ -130,8 +130,10 @@ document.forms.updateTask.onsubmit = function (e) {
 	let id = document.querySelector('input[name="updateTask_id"]').value;
 	let text = document.querySelector('input[name="updateTask_text"]').value;
 	let isCompleted = document.querySelector('input[name="updateTask_isCompleted"]').value;
+	
 	let createdAt = document.querySelector('input[name="updateTask_createdAt"]').value;
 	let userId = document.querySelector('input[name="updateTask_userId"]').value;
+	
 	let body = {
 		"updateTask_id": id,
 		"updateTask_text": text,
@@ -143,7 +145,7 @@ document.forms.updateTask.onsubmit = function (e) {
 	sendRequest('POST', requestURL, body)
 		.then(data => {
 			alert(data);
-
+			console.log(isCompleted);
 			const updateTask_id = document.querySelector('input[name="updateTask_id"]');
 			updateTask_id.value = '';
 			const updateTask_text = document.querySelector('input[name="updateTask_text"]');

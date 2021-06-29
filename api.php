@@ -32,7 +32,7 @@ switch ($input['action'])
 		$taskController->task->isCompleted = $input['updateTask_isCompleted'];
 		$taskController->task->createdAt = $input['updateTask_createdAt'];
 		$taskController->task->userId = $input['updateTask_userId'];
-		echo ($taskController->renewTask());
+		echo $taskController->renewTask();
 		break;
 
 	case 'delete':
@@ -40,5 +40,6 @@ switch ($input['action'])
 		echo $taskController->deleteTask();
 		break;
 }
+
 /* $taskController->id = $input['task_id'];
 echo $taskController->showTask(); */
